@@ -16,8 +16,8 @@ const TodoController = {
     await TodoCollection.update(id, done)
   },
 
-  delete(id) {
-    TodoCollection.delete(id)
+  async delete(id) {
+    await TodoCollection.delete(id)
   },
 
   async render() {

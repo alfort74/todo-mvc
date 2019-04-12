@@ -48,9 +48,9 @@ class TodoModel {
         return target
     },
 
-    delete(id) {
+    async delete(id) {
         const target = this.todos.find(todo => todo.id === id)
-        const resp = fetch (`/todos/${id}`, {
+        const resp = await fetch (`/todos/${id}`, {
             method: 'DELETE',
         }).then((res => res))
         console.log(this.todos.findIndex(todo => todo.id === id))
