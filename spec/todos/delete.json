@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/todos/:id",
+        "method": "DELETE"
+    },
+    "response": {
+        "status": 204,
+        "body": {}
+    }
+}

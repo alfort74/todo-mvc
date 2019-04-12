@@ -9,6 +9,7 @@ const TodoController = {
     const todo = await TodoCollection.create(name)
     const view = new Todo({ id: todo.id, name: todo.name, done: todo.done })
     view.mount()
+    this.views.push(view)
   },
 
   async update(id, done) {

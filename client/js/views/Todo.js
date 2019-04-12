@@ -29,6 +29,9 @@ class Todo {
         const done = event.target.checked
         TodoController.update(id, done)
       })
+
+      const removeButton = this.element.querySelector('.todo-remove-button')
+      removeButton.addEventListener('click', () => console.log('削除ボタンが押された'))
     }
   }
   
