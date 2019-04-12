@@ -47,6 +47,15 @@ class TodoModel {
         }).then((res) => res.json())
         target.update(resp.name, resp.done)
         return target
+    },
+
+    delete(id) {
+        const target = this.todos.find(todo => todo.id === id)
+        const resp = fetch (`/todos/${id}`, {
+            method: 'DELETE',
+        }).then((res => res.json()))
+        this.todos.splice(target.splice(this.todos.findIndex(todo => todo.id === id)))
+        return target
     }
   }
   

@@ -16,6 +16,10 @@ const TodoController = {
     await TodoCollection.update(id, done)
   },
 
+  delete(id) {
+    TodoCollection.delete(id)
+  },
+
   async render() {
     const todos = await TodoCollection.read()
     this.views = todos.map(todo => {

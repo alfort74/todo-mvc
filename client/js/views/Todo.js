@@ -31,7 +31,10 @@ class Todo {
       })
 
       const removeButton = this.element.querySelector('.todo-remove-button')
-      removeButton.addEventListener('click', () => console.log('削除ボタンが押された'))
+      removeButton.addEventListener('click', () => {
+        console.log('削除ボタンが押された')
+        this.parent.removeChild(this.element)
+      })
     }
   }
   
