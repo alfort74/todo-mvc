@@ -11,8 +11,8 @@ const TodoController = {
     view.mount()
   },
 
-  update(id, done) {
-    TodoCollection.update(id, done)
+  async update(id, done) {
+    await TodoCollection.update(id, done)
   },
 
   async render() {

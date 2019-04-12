@@ -35,12 +35,17 @@ class TodoModel {
       return newTodo
     },
 
-    update(id, done) {
+    async update(id, done) {
         // TODO: API通信
         const target = this.todos.find(todo => todo.id === id)
-        console.log('before', target)
-        target.update(target.name, done)
-        console.log('after', target)
+        const resp = await fetch (`/todos/${id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify({ name: target.name, done })
+        }).then((res) => res.json())
+        target.update(resp.name, resp.done)
         return target
     }
   }
