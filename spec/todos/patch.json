@@ -1,0 +1,18 @@
+{
+    "request": {
+        "path": "/todos/:id",
+        "method": "PATCH",
+        "body": {
+            "name": "{:name}",
+            "done": "{:done}"
+        }
+    },
+    "response": {
+        "status": 200,
+        "body": {
+            "id": "{:id}",
+            "name": "{:name}",
+            "done": "{:done}"
+        }
+    }
+}
