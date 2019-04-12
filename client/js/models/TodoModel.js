@@ -36,7 +36,6 @@ class TodoModel {
     },
 
     async update(id, done) {
-        // TODO: API通信
         const target = this.todos.find(todo => todo.id === id)
         const resp = await fetch (`/todos/${id}`, {
             method: 'PATCH',
@@ -53,8 +52,10 @@ class TodoModel {
         const target = this.todos.find(todo => todo.id === id)
         const resp = fetch (`/todos/${id}`, {
             method: 'DELETE',
-        }).then((res => res.json()))
-        this.todos.splice(target.splice(this.todos.findIndex(todo => todo.id === id)))
+        }).then((res => res))
+        console.log(this.todos.findIndex(todo => todo.id === id))
+        this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
+        console.log(this.todos)
         return target
     }
   }
