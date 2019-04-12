@@ -7,13 +7,19 @@ class TodoModel {
 
     update(id, done) {
         this.name = name
-        this.name = done
+        this.done = done
     }
   }
   
   const TodoCollection = {
     todos: [],
   
+    count() {
+        let count = this.todos.filter(todos => todos.done === true)
+        const counter_dom = document.querySelector('.done-items-num__value')
+        counter_dom.innerHTML = count.length
+    },
+
     async read() {
       const resp = await fetch('/todos').then((res) => res.json())
       this.todos = resp.todos.map((todo) => {
@@ -45,6 +51,7 @@ class TodoModel {
             body: JSON.stringify({ name: target.name, done })
         }).then((res) => res.json())
         target.update(resp.name, resp.done)
+        this.count()
         return target
     },
 
@@ -56,6 +63,7 @@ class TodoModel {
         console.log(this.todos.findIndex(todo => todo.id === id))
         this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
         console.log(this.todos)
+        this.count()
         return target
     }
   }
