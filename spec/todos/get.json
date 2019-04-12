@@ -5,6 +5,24 @@
   },
   "response": {
     "status": 200,
-    "body": {}
+    "body": {
+      "todos": [
+        {
+          "id": 1,
+          "name": "sample1",
+          "done": false
+        }, 
+        {
+          "id": 2,
+          "name": "sample2",
+          "done": false
+        },
+        {
+          "id": 3,
+          "name": "sample3",
+          "done": false
+        }
+      ]
+    }
   }
 }
