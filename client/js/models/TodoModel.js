@@ -5,7 +5,10 @@ class TodoModel {
       this.done = done
     }
 
-    update()
+    update(id, done) {
+        this.name = name
+        this.name = done
+    }
   }
   
   const TodoCollection = {
@@ -35,7 +38,9 @@ class TodoModel {
     update(id, done) {
         // TODO: API通信
         const target = this.todos.find(todo => todo.id === id)
+        console.log('before', target)
         target.update(target.name, done)
+        console.log('after', target)
         return target
     }
   }
